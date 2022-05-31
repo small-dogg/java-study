@@ -7,8 +7,6 @@ public class Table {
     public String[] dishNames = {"burger", "donut", "donut"};
     final int MAX_FOOD = 6;
     private List<String> dishes = new ArrayList<>();
-
-
     public synchronized void add(String dish) {
         while (dishes.size() >= MAX_FOOD) {
             String name = Thread.currentThread().getName();
@@ -24,7 +22,7 @@ public class Table {
         System.out.println("Dishes:" + dishes.toString());
     }
 
-    public void remove(String dishName) {
+    public final void remove(String dishName) {
         synchronized (this) {
             String name = Thread.currentThread().getName();
 
@@ -55,6 +53,7 @@ public class Table {
                 } catch (InterruptedException e) {
                 }
             }
+
         }
     }
 
