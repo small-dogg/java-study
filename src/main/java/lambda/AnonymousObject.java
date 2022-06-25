@@ -1,4 +1,4 @@
-package lamda;
+package lambda;
 
 public class AnonymousObject {
     // Object obj = (a, b) -> a> b ? a: b // 람다식. 익명 객체

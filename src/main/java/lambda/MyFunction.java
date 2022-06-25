@@ -1,4 +1,4 @@
-package lamda;
+package lambda;
 
 @FunctionalInterface
 public interface MyFunction {
