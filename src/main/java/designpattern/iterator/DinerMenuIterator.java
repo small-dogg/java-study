@@ -2,7 +2,10 @@ package designpattern.iterator;
 
 import java.util.Iterator;
 
-public class DinerMenuIterator implements Iterator {
+/**
+ * Concrete Iterator
+ */
+public class DinerMenuIterator implements Iterator<MenuItem> {
     MenuItem[] items;
     int position = 0;
 
@@ -24,5 +27,10 @@ public class DinerMenuIterator implements Iterator {
         } else {
             return true;
         }
+    }
+
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException("메뉴 항목을 지울 수 없습니다.");
     }
 }

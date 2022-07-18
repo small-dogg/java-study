@@ -3,7 +3,10 @@ package designpattern.iterator;
 import java.util.Iterator;
 import java.util.List;
 
-public class PancakeHouseMenuIterator implements Iterator {
+/**
+ * Concrete Iterator
+ */
+public class PancakeHouseMenuIterator implements Iterator<MenuItem> {
     private final List<MenuItem> menuItems;
     private int position = 0;
 
@@ -21,9 +24,14 @@ public class PancakeHouseMenuIterator implements Iterator {
     }
 
     @Override
-    public Object next() {
+    public MenuItem next() {
         MenuItem menuItem = menuItems.get(position);
         position++;
         return menuItem;
+    }
+
+    @Override
+    public void remove() {
+        throw new UnsupportedOperationException("메뉴 항목을 지울 수 없습니다.");
     }
 }
