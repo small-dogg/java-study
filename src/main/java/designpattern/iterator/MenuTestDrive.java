@@ -1,5 +1,8 @@
 package designpattern.iterator;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * 반복자 패턴(Iterator Pattern)은 컬렉션의 구현 방법을 노출하지 않으면서 집합체 내의 모든 항목에 접근하는 방법을 제공
  *
@@ -14,7 +17,9 @@ public class MenuTestDrive {
         Menu dinerMenu = new DinerMenu();
         Menu cafeMenu = new CafeMenu();
 
-        Waitress waitress = new Waitress(pancakeHouseMenu, dinerMenu, cafeMenu);
+        List<Menu> menuList = List.of(pancakeHouseMenu, dinerMenu, cafeMenu);
+
+        Waitress waitress = new Waitress(menuList);
 
         waitress.printMenu();
     }
