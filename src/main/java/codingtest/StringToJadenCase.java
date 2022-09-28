@@ -21,15 +21,15 @@ public class StringToJadenCase {
     }
 
     public String solution2(String s) {
-        String answer = "";
+        StringBuilder answer = new StringBuilder();
         String[] sp = s.toLowerCase().split("");
         boolean flag = true;
 
         for(String ss : sp) {
-            answer += flag ? ss.toUpperCase() : ss;
-            flag = ss.equals(" ") ? true : false;
+            answer.append(flag ? ss.toUpperCase() : ss);
+            flag = ss.equals(" ");
         }
 
-        return answer;
+        return answer.toString();
     }
 }

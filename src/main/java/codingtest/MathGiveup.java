@@ -24,7 +24,7 @@ public class MathGiveup {
                 giveup3Corr++;
             }
         }
-        List<Integer> integers = Arrays.asList(new Integer[]{giveup1Corr, giveup2Corr, giveup3Corr});
+        List<Integer> integers = Arrays.asList(giveup1Corr, giveup2Corr, giveup3Corr);
         Collections.sort(integers, Collections.reverseOrder());
         Integer max = integers.get(0);
         List<Integer> resultList = new LinkedList<>();

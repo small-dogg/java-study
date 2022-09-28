@@ -26,24 +26,24 @@ public class KaKaoHiddenMap {
         for (int i = 0; i < n; i++) {
             String[] s1 = Integer.toBinaryString(arr1[i]).split("");
             String[] s2 = Integer.toBinaryString(arr2[i]).split("");
-            String s = "";
+            StringBuilder s = new StringBuilder();
             for(int j=0;j<n;j++){
                 if(s1.length-j-1>=0){
                     if (s1[s1.length-j-1].equals("1")) {
-                        s = "#" + s;
+                        s.insert(0, "#");
                         continue;
                     }
                 }
                 if(s2.length-j-1>=0){
                     if (s2[s2.length-j-1].equals("1")) {
-                        s = "#" + s;
+                        s.insert(0, "#");
                         continue;
                     }
                 }
-                s=" "+s;
+                s.insert(0, " ");
 
             }
-            answer[i]=s;
+            answer[i]= s.toString();
         }
 
 

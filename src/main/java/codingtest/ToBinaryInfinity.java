@@ -9,12 +9,12 @@ public class ToBinaryInfinity {
         while(!s.equals("1")) {
             transCnt++;
 
-            String tmp="";
+            StringBuilder tmp= new StringBuilder();
             for (String str:s.split("")){
                 if(str.equals("0")){
                     zeroCnt++;
                 }else{
-                    tmp+=str;
+                    tmp.append(str);
                 }
             }
             s = Integer.toBinaryString(tmp.length());
