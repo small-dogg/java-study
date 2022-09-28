@@ -1,6 +1,7 @@
 package codingtest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class KakaoFailRate2 {
     public int[] solution(int N, int[] stages) {

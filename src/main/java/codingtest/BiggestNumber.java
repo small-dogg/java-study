@@ -1,6 +1,6 @@
 package codingtest;
 
-import java.util.*;
+import java.util.Arrays;
 
 public class BiggestNumber {
     public String solution(int[] numbers) {

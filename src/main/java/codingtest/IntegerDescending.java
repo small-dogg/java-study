@@ -1,7 +1,6 @@
 package codingtest;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class IntegerDescending {
     public long solution(long n) {
@@ -10,7 +9,7 @@ public class IntegerDescending {
         Arrays.sort(list);
 
         StringBuilder sb = new StringBuilder();
-        for(String str : list)sb.append(str);
+        for (String str : list) sb.append(str);
         return Long.parseLong(sb.reverse().toString());
     }
 

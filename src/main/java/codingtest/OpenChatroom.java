@@ -1,6 +1,7 @@
 package codingtest;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class OpenChatroom {
     private final String enter = "님이 들어왔습니다.";

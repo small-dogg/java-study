@@ -1,7 +1,8 @@
 package codingtest;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 public class FailedRate {
     public int[] solution(int N, int[] stages) {

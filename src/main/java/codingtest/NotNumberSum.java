@@ -1,8 +1,5 @@
 package codingtest;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class NotNumberSum {
     public static void main(String[] args) {
         int solution = new NotNumberSum().solution(new int[]{1,5,6,3});

@@ -1,8 +1,5 @@
 package codingtest;
 
-import java.util.Arrays;
-import java.util.List;
-
 public class RotationArray {
     public int[] solution(int[] A, int K) {
         // write your code in Java SE 8

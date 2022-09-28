@@ -1,9 +1,5 @@
 package codingtest;
 
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class Printer {
     public int solution(int[] priorities, int location) {
         int max = 0;

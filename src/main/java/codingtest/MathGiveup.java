@@ -1,7 +1,9 @@
 package codingtest;
 
-import java.util.*;
-import java.util.stream.IntStream;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
 
 public class MathGiveup {
     private final int[] giveup1= {1, 2, 3, 4, 5};

@@ -1,9 +1,5 @@
 package codingtest;
 
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
-
 public class Reverse3jinbub {
     public int solution(int n) {
         StringBuilder ans = new StringBuilder();
