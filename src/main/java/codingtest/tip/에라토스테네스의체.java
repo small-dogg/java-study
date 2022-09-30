@@ -1,5 +1,6 @@
 package codingtest.tip;
 
+//소수
 public class 에라토스테네스의체 {
     public static void make_prime(int N) {
 
