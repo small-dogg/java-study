@@ -2,28 +2,24 @@ package codingtest;
 
 import java.util.*;
 
+//https://school.programmers.co.kr/learn/courses/30/lessons/42885
 public class LifeBoat {
     public int solution(int[] people, int limit) {
+        int answer = 0;
         Arrays.sort(people);
-        int sum = 0;
-        int max = 0;
-        int cnt = 0;
-        for (int person : people) {
-            if(limit>person+sum&&max!=2){
-                sum += person;
-                max++;
-            }else if(limit == person+sum&&max!=2) {
-                sum += person;
-                max++;
-            }else{
-                    cnt++;
-                    sum = person;
+        int lt=0;
+        int rt=people.length-1;
+        while(lt<=rt) {
+            int sum = people[lt]+people[rt];
+            if(lt!=rt-- && sum<=limit) {
+                lt++;
             }
+            answer++;
         }
-        return cnt+1;
+        return answer;
     }
 
     public static void main(String[] args) {
-        new LifeBoat().solution(new int[]{70,80,50},100);
+        new LifeBoat().solution(new int[]{70, 80, 50,50},100);
     }
 }
