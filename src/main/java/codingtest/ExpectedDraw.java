@@ -1,5 +1,6 @@
 package codingtest;
 
+//https://school.programmers.co.kr/learn/courses/30/lessons/12985/solution_groups?language=java
 public class ExpectedDraw {
     public int solution(int n, int a, int b){
         int answer = 0;
