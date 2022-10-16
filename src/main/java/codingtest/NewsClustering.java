@@ -6,6 +6,7 @@ import java.util.Collections;
 public class NewsClustering {
     public int solution(String str1, String str2) {
         ArrayList<String> multiSet1 = new ArrayList<>();
+
         ArrayList<String> multiSet2 = new ArrayList<>();
         ArrayList<String> union = new ArrayList<>();
         ArrayList<String> intersection = new ArrayList<>();
