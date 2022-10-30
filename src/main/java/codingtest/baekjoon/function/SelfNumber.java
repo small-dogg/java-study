@@ -2,30 +2,34 @@ package codingtest.baekjoon.function;
 
 //https://www.acmicpc.net/problem/4673
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-
 public class SelfNumber {
-    public static void main(String[] args) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        boolean[] ints = new boolean[10000];
-        for (int i = 0; i < 10000; i++) {
-            char[] chars = String.valueOf(i).toCharArray();
-            int sum = 0;
-            for (char aChar : chars) {
-                sum+=Integer.parseInt(String.valueOf(aChar));
-            }
-            if(sum+i>=10000) break;
-            ints[sum+i] = true;
-        }
-        for (int i = 0; i < ints.length; i++) {
-            if (ints[i]) {
-                bw.write(String.valueOf(i+1));
-                bw.newLine();
+    public static void main(String[] args) {
+
+        boolean[] check = new boolean[10001];
+
+        for (int i = 1; i < 10001; i++) {
+            int n = d(i);
+            if (n < 10001) {
+                check[n] = true;
             }
         }
-        bw.flush();
-        bw.close();
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < 10001; i++) {
+            if (!check[i]) {
+                sb.append(i).append('\n');
+            }
+        }
+        System.out.println(sb);
+    }
+
+    public static int d(int number) {
+        int sum = number;
+        while (number != 0) {
+            sum = sum + (number % 10);
+            number = number / 10;
+        }
+
+        return sum;
     }
 }
