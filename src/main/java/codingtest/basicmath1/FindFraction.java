@@ -12,17 +12,17 @@ public class FindFraction {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int data = Integer.parseInt(br.readLine());
 
-        int i = 1;
-        int val = i;
+        int i = 0;
+        int val = 0;
         while (true) {
             i++;
-            val+=i;
-            if(val>=data){
-                int diff = val - data;
-                System.out.println(diff+1 + "/" +(data-diff-1));
-                System.out.println(val/i);
-                System.out.println(val);
-                System.out.println(i);
+            val += i;
+            if (val >= data) {
+                if (i % 2 == 0) {
+                    System.out.println(data - val + i + "/" + (val - data + 1));
+                } else {
+                    System.out.println((val - data + 1) + "/" + (data - val + i));
+                }
                 break;
             }
         }
