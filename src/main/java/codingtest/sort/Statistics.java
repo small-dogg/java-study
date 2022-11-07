@@ -11,57 +11,53 @@ public class Statistics {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int length = Integer.parseInt(br.readLine());
-        int[] arr = new int[length];
-        int[] counting = new int[8001];
-        int[] sorted = new int[length];
+        int[] arr = new int[8001];
 
-        int min = 4000;
-        int max = -4000;
         int sum = 0;
+        int max = -4000;
+        int min = 4000;
+        int median = 10000;
+        int mode = 10000;
 
         for (int i = 0; i < length; i++) {
             int val = Integer.parseInt(br.readLine());
-            arr[i]=val;
-            sum+=val;
-            if(min>val) min = val;
-            if(max<val) max = val;
+            sum += val;
+            arr[val + 4000]++;
+
+            if (max < val) {
+                max = val;
+            }
+            if (min > val) {
+                min = val;
+            }
         }
 
-        for (int i : arr) {
-            counting[i+4000]++;
-        }
+        int count = 0;
+        int modeMax = 0;
 
-        for (int i = 1; i < counting.length; i++) {
-            counting[i]+=counting[i-1];
-        }
-
-        int mode = -4000;
         boolean flag = false;
-        for (int i = 0; i < counting.length; i++) {
-            if(mode < counting[i]-4000) {
-                mode = i-4000;
-                flag = true;
-            }
 
-            else if(mode == counting[i]-4000 && flag) {
-                mode = i-4000;
-                flag = false;
+        for (int i = min + 4000; i <= max + 4000; i++) {
+            if (arr[i] > 0) {
+                if (count < (length + 1) / 2) {
+                    count += arr[i];
+                    median = i - 4000;
+                }
+
+                if (modeMax < arr[i]) {
+                    modeMax = arr[i];
+                    mode = i - 4000;
+                    flag = true;
+                } else if (modeMax == arr[i] && flag) {
+                    mode = i - 4000;
+                    flag = false;
+                }
             }
         }
 
-
-        for (int i = arr.length-1; i >= 0; i--) {
-            sorted[counting[arr[i]+4000]-1]=arr[i];
-            counting[arr[i]+4000]--;
-        }
-
-        int avg = Math.round(sum / length);
-        int mid = sorted[(sorted.length-1) / 2];
-        int range = sorted[sorted.length - 1] - sorted[0];
-
-        System.out.println("avg = " + avg);
-        System.out.println("mid = " + mid);
-        System.out.println("mode = " + mode);
-        System.out.println("range = " + range);
+        System.out.println((int) Math.round((double) sum / length));
+        System.out.println(median);
+        System.out.println(mode);
+        System.out.println(max - min);
     }
 }
