@@ -1,4 +1,4 @@
-package codingtest.sort;
+package codingtest.baekjoon.sort;
 
 import java.io.BufferedReader;
 import java.io.IOException;

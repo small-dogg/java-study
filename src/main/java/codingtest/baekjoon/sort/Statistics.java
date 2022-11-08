@@ -1,4 +1,4 @@
-package codingtest.sort;
+package codingtest.baekjoon.sort;
 
 //https://www.acmicpc.net/problem/2108
 
