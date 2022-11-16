@@ -15,16 +15,32 @@ public class MelonFarm {
         int xMax = 0;
         int yMax = 0;
 
+        int[] ints = new int[6];
+
+        int smallXIdx = 0;
+        int smallYIdx = 0;
         for (int i = 0; i < 6; i++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
-            int x = Integer.parseInt(st.nextToken());
+            st.nextToken();
             int val = Integer.parseInt(st.nextToken());
-            if(x==1||x==2) {
-                if (val > yMax) yMax = val;
-            }else{
-                if (val > xMax) xMax = val;
-            }
-        }
 
+            ints[i] = val;
+
+            if (i % 2 == 0) {
+                if (val > xMax) {
+                    xMax = val;
+                    smallXIdx = i + 3;
+                }
+            } else {
+                if (val > yMax) {
+                    yMax = val;
+                    smallYIdx = i + 3;
+                }
+            }
+
+        }
+        int bigSquare = xMax * yMax;
+        int smallSquare = ints[smallXIdx % 6] * ints[smallYIdx % 6];
+        System.out.println((bigSquare - smallSquare) * melon);
     }
 }
