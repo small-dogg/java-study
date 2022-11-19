@@ -22,6 +22,6 @@ public class 최대공약수최소공배수 {
     public static void main(String[] args) {
         int lcm = lcm(24, 14);
         System.out.println("lcm = " + lcm);
-
+        System.out.print("gcd=" + gcd(24, 14));
     }
 }
