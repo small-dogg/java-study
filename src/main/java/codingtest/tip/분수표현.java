@@ -1,29 +1,6 @@
-package codingtest.baekjoon.IntegerAndCombinatorics;
+package codingtest.tip;
 
-//https://www.acmicpc.net/problem/3036
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.StringTokenizer;
-
-public class Ring {
-    public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        br.readLine();
-
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        int val = Integer.parseInt(st.nextToken());
-        while (st.hasMoreTokens()){
-            printFraction(reduceFraction(val, Integer.parseInt(st.nextToken())));
-        }
-    }
-
-    public static void printFraction(int[] bunsu) {
-        System.out.format("%d/%d%n", bunsu[0], bunsu[1]);
-    }
-
+public class 분수표현 {
     // 분수 약분 함수 (Reduce a Fraction)
     // 분자 분모를 입력받아, 약분 후, 분자 분모가 든 배열을 반환
     public static int[] reduceFraction(int bunja, int bunmo) {
@@ -57,5 +34,4 @@ public class Ring {
 
         return Math.abs(a);
     }
-
 }
