@@ -76,12 +76,6 @@ public class BaseFileUtils {
                     maxRow++;
                 }
 
-                System.out.println(CSVFileVo.builder()
-                        .file(file)
-                        .header(header)
-                        .data(list)
-                        .maxCol(maxCol)
-                        .maxRow(maxRow));
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
