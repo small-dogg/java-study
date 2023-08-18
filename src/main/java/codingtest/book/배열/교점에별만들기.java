@@ -1,6 +1,7 @@
 package codingtest.book.배열;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class 교점에별만들기 {
@@ -31,6 +32,24 @@ public class 교점에별만들기 {
 
         int width = (int) (maximum.x - minimum.x + 1);
         int height = (int) (maximum.y - minimum.y + 1);
+
+        char[][] arr = new char[width][height];
+
+        for (char[] row : arr) {
+            Arrays.fill(row, '.');
+        }
+
+        for (Point point : points) {
+            int x = (int) (point.x - minimum.x);
+            int y = (int) (maximum.y - point.y);
+            arr[y][x] = '*';
+        }
+
+        String[] result = new String[arr.length];
+        for (int i = 0; i < result.length; i++) {
+            result[i] = new String(arr[i]);
+        }
+
 
 
         return answer;
