@@ -3,7 +3,7 @@ package codingtest.book.문자열;
 import java.util.ArrayList;
 import java.util.List;
 
-//60057
+//60057 - 풀이중
 public class 문자열압축2 {
     public static void main(String[] args) {
         int value = new 문자열압축2().solution("aabbaccc");
