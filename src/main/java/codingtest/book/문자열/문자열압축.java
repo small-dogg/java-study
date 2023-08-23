@@ -2,6 +2,7 @@ package codingtest.book.문자열;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.StringTokenizer;
 
 public class 문자열압축 {
 
@@ -28,22 +29,23 @@ public class 문자열압축 {
         StringBuilder sb = new StringBuilder();
 
         List<String> tokens = tokenize(s, length);
-        String before = "";
-        int size = 0;
+        String before = tokens.get(0);
+        int size = 1;
 
-        for (String token : tokens) {
-            if (!before.equals(token)) {
-                if(size!=0) {
+        for (int i = 1; i < tokens.size(); i++) {
+            if (!tokens.get(i).equals(before)) {
+                if(size>1) {
                     sb.append(size).append(before);
                 }else{
                     sb.append(before);
                 }
-                before = token;
                 size = 0;
             } else {
                 size++;
             }
+            before = tokens.get(i);
         }
+
         return sb.toString().length();
     }
 

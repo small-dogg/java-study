@@ -30,6 +30,7 @@ public class 문자열압축2 {
         for (String token : split(source, length)) {
             // 압축 문자열 구성
         }
+        return 0;
     }
 
     private int solution(String s) {
