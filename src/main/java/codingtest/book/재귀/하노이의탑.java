@@ -2,14 +2,18 @@ package codingtest.book.재귀;
 
 /*하노이의 탑에서 재귀 관점은 원판 하나를 하나의 기둥에서 다른 기둥으로 옮기는 것을 반복한다는 점이다.*/
 
-/**1. 상태
- *  문제 : 원판 N개를 기둥 1에서 기둥 3으로 옮기는 과정
- *  변수
- *      - 옮기려는 원판 수 N 개
- *      - 원판이 현재 위치한 기둥 from
- *      - 원판이 이동해야하는 기둥 to
- *  따라서 하노이의 상태는 (n, from, to) 로 구성할 수 있다.
- *  원판 n개를 기둥 1에서 기둥 3으로 옮기는 과정은 (n, 1, 3)으로 표현할 수 있다.
+/**
+ * 1. 상태
+ * 문제 : 원판 N개를 기둥 1에서 기둥 3으로 옮기는 과정
+ * 변수
+ * - 옮기려는 원판 수 N 개
+ * - 원판이 현재 위치한 기둥 from
+ * - 원판이 이동해야하는 기둥 to
+ * 따라서 하노이의 상태는 (n, from, to) 로 구성할 수 있다.
+ * 원판 n개를 기둥 1에서 기둥 3으로 옮기는 과정은 (n, 1, 3)으로 표현할 수 있다.
+ * 2. 종료 조건
+ * 원판이 한개인 경우 (1, from, to)로 표현 -> [[from, to]]
+ * 이말인즉슨, "원판 1개를 from 에서 to로 옮기는 문제"는 바로 'from 에서 tofh 원판을 옮기면 된다는' 의미가 된다.
  **/
 
 /** 2. 종료 조건
@@ -44,21 +48,27 @@ import java.util.List;
  */
 public class 하노이의탑 {
 
-    private List<int[]> hanoi(int n, int from, int to) {
+    public static void main(String[] args) {
+        int[][] solution = new 하노이의탑().solution(4);
+    }
+
+    private void hanoi(int n, int from, int to, List<int[]> process) {
         //종료 조건(from 자리에 한개밖에 안남아서 to로 이동)
-        if(n==1) return List.of(new int[]{from, to});
+        if (n == 1){
+            process.add(new int[]{from, to});
+            return;
+        }
 
         //점화식
         int empty = 6 - from - to;
-        List<int[]> result = new ArrayList<>();
-        result.addAll(hanoi(n - 1, from, empty));
-        result.addAll(hanoi(1, from, to));
-        result.addAll(hanoi(n - 1, empty, to));
-
-        return result;
+        hanoi(n - 1, from, empty, process);
+        hanoi(1, from, to, process);
+        hanoi(n - 1, empty, to, process);
     }
 
     public int[][] solution(int n) {
-        return hanoi(n, 1, 3).toArray(new int[0][]);
+        List<int[]> process = new ArrayList<>();
+        hanoi(n, 1, 3, process);
+        return process.toArray(new int[0][]);
     }
 }
